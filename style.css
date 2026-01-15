@@ -93,8 +93,9 @@ b {
   font-family: var(--font-frutiger);
   font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 100%;
   letter-spacing: 0em;
+  vertical-align: middle;
 }
 
 /* Accent text: Frutiger bold 14 px 14 -line height 6% letter spacing */
@@ -221,10 +222,11 @@ nav a {
   text-decoration: none;
   color: var(--text-dark);
   font-family: var(--font-frutiger);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 100%;
   letter-spacing: 0;
+  vertical-align: middle;
   transition: opacity 0.3s;
 }
 
