@@ -1,0 +1,284 @@
+/* Remove default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full width and height */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-frutiger);
+  /* Default to Frutiger */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'DayOneFrutiger';
+  src: url('Fonts/Frutiger-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DayOneFrutiger';
+  src: url('Fonts/Frutiger-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #2D3436;
+  --accent-color: #0984E3;
+  --text-light: #F5F6FA;
+  --text-dark: #1a1a1a;
+  --bg-gradient: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+  --surface-color: rgba(255, 255, 255, 0.9);
+
+  /* Fonts */
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-frutiger: 'DayOneFrutiger', sans-serif;
+  --font-ubuntu: 'Ubuntu Mono', monospace;
+}
+
+/* Typography Classes */
+
+/* Primary Display: Montserrat bold 69px 72-line height 1% letter spacing */
+.text-primary-display {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 69px;
+  line-height: 72px;
+  letter-spacing: 0.01em;
+}
+
+/* H-1: Montserrat bold 48px auto line height 2% letter spacing */
+.text-h1,
+h1 {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: normal;
+  letter-spacing: 0.02em;
+}
+
+/* Heading - 2: Montserrat bold 36 px auto-line height 2% letter spacing */
+.text-h2,
+h2 {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: normal;
+  letter-spacing: 0.02em;
+}
+
+/* Heading - 3: Montserrat bold 28 px auto-line height 2% letter spacing */
+.text-h3,
+h3 {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: normal;
+  letter-spacing: 0.02em;
+}
+
+/* Text bold: Frutiger bold 16 px 24 -line height 0% letter spacing */
+/* Text bold: Frutiger bold 16 px 24 -line height 0% letter spacing */
+.text-bold,
+strong,
+b {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+/* Accent text: Frutiger bold 14 px 14 -line height 6% letter spacing */
+.text-accent {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+}
+
+/* Buttons: Montserrat semi bold 16 px auto-line height 6% letter spacing */
+.text-button {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 0.06em;
+}
+
+/* Rough: Frutiger bold 16 px 192.6% -line height 6% letter spacing */
+.text-rough {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 192.6%;
+  letter-spacing: 0.06em;
+}
+
+/* Img text: Ubuntu Mono bold 12px 13.7-line height, 0% letter spacing */
+.text-img {
+  font-family: var(--font-ubuntu);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 13.7px;
+  letter-spacing: 0em;
+}
+
+/* Small text: Frutiger bold 12 px auto -line height 0% letter spacing */
+.text-small,
+small {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: 0em;
+}
+
+/* Blog card title: Frutiger bold 14 px 17-line height 0% letter spacing */
+.text-blog-title {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0em;
+}
+
+/* Page container */
+.page {
+  width: 100%;
+  min-height: 200vh;
+  /* Makes page tall so you can scroll */
+  padding: 40px;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+/* Header & Navigation */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 70px;
+  /* 70px horizontal padding */
+  height: 100px;
+  /* Giving it some height to center vertically, adjust as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo-wrap {
+  width: 100px;
+  height: 99.6356px;
+  padding: 5px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.logo-img {
+  width: 82px;
+  height: 89.6px;
+  display: block;
+  object-fit: contain;
+}
+
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Space between nav container and button if needed, though instructions say button is after nav links */
+}
+
+nav {
+  padding: 4px;
+  /* nav links wrapped with 4 px padding */
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  /* 20 px space */
+  list-style: none;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-family: var(--font-frutiger);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+:root {
+  /* Button colours based on Figma */
+  --button-bg-default: #51423b;
+  /* Primary colour (lighter brown) */
+  --button-bg-hover: #362620;
+  /* Secondary colour (darker brown) */
+  --button-border: #e5e6ea;
+  /* Light border colour */
+  --button-text: #ffffff;
+  /* White text */
+}
+
+/* Primary button base styles */
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  height: 59px;
+  border-radius: 48px;
+  border: 1px solid var(--button-border);
+  background-color: var(--button-bg-default);
+  color: var(--button-text);
+  white-space: nowrap;
+  gap: 10px;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  box-shadow:
+    -2px 4px 4px hsla(23, 18%, 19%, 0.4),
+    inset 0 4px 4px hsla(0, 0%, 0%, 0.3),
+    inset 0 -4px 4px hsla(23, 18%, 31%, 1),
+    2px -1px 4px hsla(23, 18%, 19%, 0.3);
+  text-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+/* Hover state */
+.primary-button:hover {
+  background-color: var(--button-bg-hover);
+  transform: translateY(-2px);
+}
+
+/* Active (pressed) state */
+.primary-button:active {
+  background-color: var(--button-bg-hover);
+  transform: translateY(0);
+  box-shadow:
+    0 1px 2px hsla(23, 18%, 19%, 0.4),
+    inset 0 1px 2px hsla(0, 0%, 0%, 0.3),
+    inset 0 -1px 2px hsla(23, 18%, 31%, 1);
+}
