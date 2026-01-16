@@ -159,25 +159,31 @@ small {
   min-height: 200vh;
   /* Makes page tall so you can scroll */
   padding: 40px;
-  background: #f5f5f5;
+  background: hsla(45, 18%, 96%, 1);
   font-family: Arial, sans-serif;
 }
 
 /* Header & Navigation */
 header {
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0 70px;
-  /* 70px horizontal padding */
   height: 100px;
-  /* Giving it some height to center vertically, adjust as needed */
+  padding: 0 70px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+
+  /* THIS is the missing part */
+  background: hsla(45, 18%, 96%, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+
+  z-index: 999;
 }
+
 
 .logo-wrap {
   width: 100px;
@@ -283,4 +289,198 @@ nav a:hover {
     0 1px 2px hsla(23, 18%, 19%, 0.4),
     inset 0 1px 2px hsla(0, 0%, 0%, 0.3),
     inset 0 -1px 2px hsla(23, 18%, 31%, 1);
+}
+
+/* 
+========================================
+   HERO SECTION
+========================================
+*/
+.hero-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  /* Center the container */
+  padding: 128px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Assuming vertical center alignment */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left Column Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 472px;
+}
+
+/* Hero Title */
+.hero-title {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 69px;
+  line-height: 72px;
+  letter-spacing: 0.01em;
+  color: #1a1a1a;
+  /* Deep black */
+}
+
+.italic-brown {
+  font-style: italic;
+  font-weight: 400;
+  color: #51423B;
+  /* Warm brown tone */
+}
+
+/* Hero Body Text */
+.hero-body {
+  font-family: var(--font-frutiger);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #7E7E7E;
+  /* Muted gray */
+  max-width: 372px;
+}
+
+/* Secondary Button */
+.secondary-button {
+  /* Base Structure */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  height: auto;
+  padding: 16px 26px;
+  /* Top/Bottom 16, Left/Right 26 */
+  border-radius: 48px;
+
+  /* Typography */
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+
+  /* Default State */
+  border: 1px solid #DAD8D2;
+  background-color: transparent;
+  color: #1A1A1A;
+  /* Accent text */
+  /* No shadow */
+  box-shadow: none;
+
+  /* Transitions */
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* smart animate / spring easing approx */
+
+  width: fit-content;
+}
+
+/* Hover State */
+.secondary-button:hover {
+  background-color: hsla(23, 18%, 19%, 1);
+  /* White background */
+  border: 1px solid #DAD8D2;
+  color: hsla(45, 18%, 96%, 1);
+  /* Dark text */
+
+  /* Subtle elevation */
+  box-shadow:
+    -2px 4px 4px rgba(58, 47, 40, 0.4),
+    inset 0px 4px 4px rgba(58, 47, 40, 0.3);
+
+  transform: translateY(0);
+}
+
+/* Active / Pressed State */
+.secondary-button:active {
+  background-color: #3A2F28;
+  /* Primary color */
+  border: 1px solid #DAD8D2;
+  color: #F6F5F2;
+  /* White text */
+
+  /* Pressed state shadows */
+  box-shadow:
+    -1px 2px 2px rgba(58, 47, 40, 0.2),
+    /* Reduced outer shadow */
+    inset 0 4px 6px rgba(0, 0, 0, 0.4);
+  /* Increased inner shadow */
+}
+
+/* Right Column Image */
+.hero-image-wrapper {
+  position: relative;
+  width: 700px;
+  height: 492px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Custom Clipped Corners: 
+     Interpret "clipped top-left and bottom-right" as 0px radius (sharp)
+     while TR and BL are rounded 24px per design intuition for this description 
+  */
+  border-radius: 0px 24px 0px 24px;
+}
+
+
+/* 
+========================================
+   PHILOSOPHY SECTION
+========================================
+*/
+.philosophy-section {
+  width: 100%;
+  padding: 128px 0;
+  text-align: center;
+  background-color: transparent;
+  /* Inherits body background (off-white/grayish) or explicit #f5f5f5 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.philosophy-label {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #100C0A;
+  margin-bottom: 32px;
+  /* Clear spacing label -> quote */
+  text-transform: uppercase;
+  /* Optional stylization for "Label" look, remove if unwanted */
+}
+
+.philosophy-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Spacing between lines */
+}
+
+.quote-line {
+  font-family: var(--font-montserrat);
+  font-size: 48px;
+  line-height: normal;
+  /* "normal" as requested */
+  color: #3C312A;
+}
+
+.quote-line.line-bold {
+  font-weight: 700;
+}
+
+.quote-line.line-italic {
+  font-weight: 400;
+  font-style: italic;
 }
