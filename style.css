@@ -480,7 +480,221 @@ nav a:hover {
   font-weight: 700;
 }
 
+
 .quote-line.line-italic {
   font-weight: 400;
   font-style: italic;
+}
+
+/* 
+========================================
+   CURATED JOURNEYS SECTION
+========================================
+*/
+.curated-journeys-section {
+  width: 100%;
+  max-width: 1440px;
+  /* Page width limit */
+  margin: 0 auto;
+  padding: 128px 70px;
+  /* 128 top/bottom, 70 left/right */
+  /* background-color: hsla(45, 18%, 96%, 1); */
+  /* Soft off-white */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Inner content centered */
+  gap: 82px;
+  /* Gap between children */
+}
+
+/* Header Row */
+.journeys-header {
+  width: 100%;
+  max-width: 1300px;
+  /* Height: Hug (52px) implies auto or explicit if needed, let's trust auto flex align */
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Margin bottom removed, handled by parent gap */
+}
+
+.curated-title {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  color: hsla(20, 23%, 5%, 1);
+  margin: 0;
+}
+
+/* Cards Wrapper */
+.cards-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  /* Height: Hug (~488px) */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* Align center */
+  align-items: flex-start;
+  gap: 42px;
+}
+
+/* Card Component */
+.journey-card {
+  width: 342px;
+  min-width: 149px;
+  /* min-width rule */
+  max-width: 342px;
+  height: auto;
+  /* hug content */
+  /* Remove background/padding/radius from card wrapper itself as per new structure implies image+text separation? 
+     Prompt says "Card structure: Image container (top)... Text area (below image)".
+     It doesn't say the card has a background or padding anymore. 
+     Wait, "Card width rules: ... Card height: hug content".
+     The previous design had white bg and padding. The new prompt describes Image Container and Text Area.
+     Usually "Mr. UX" designs are clean. I will assume no padding on the card wrapper, and the image is full width of the card.
+     "Image container... Size: 342px (fill)".
+     If I keep padding: 20px, the image would be smaller (342 - 40).
+     "Size: 342px (fill)" implies the image is the full width of the card.
+     So I will remove padding from .journey-card and let it be a transparent wrapper or just a block.
+  */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  /* Wrapper doesn't strictly need radius if image has it */
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* "Gap between image and text block: 20px" */
+
+  /* Remove card-level shadow */
+  box-shadow: none;
+  transition: none;
+  /* Shadow transition handled on image container */
+
+  cursor: pointer;
+  /* "On click: Navigate..." */
+}
+
+/* Image Container */
+.card-image-container {
+  position: relative;
+  width: 100%;
+  /* 342px */
+  height: 414px;
+  /* Fixed height */
+  border-radius: 10px;
+  overflow: hidden;
+  /* Clip image */
+
+  /* Default State Shadows */
+  box-shadow:
+    0px 0px 14px 0px hsla(23, 18%, 19%, 0.3);
+    0px 4px 4px 0px hsla(23, 18%, 19%, 0.25);
+
+  /* Animation */
+  transition: box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Spring-ish easement (mass 1, stiff 80, damp 20 approx) */
+}
+
+/* Hover/Active State */
+.journey-card:hover .card-image-container,
+.journey-card:active .card-image-container {
+  box-shadow: none;
+  /* Remove BOTH shadows */
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  /* "Image = cover, clipped to radius" - container handles clip via overflow:hidden, but good to have matching radius */
+  display: block;
+}
+
+/* Badge */
+.card-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px;
+  background: hsla(20, 23%, 5%, 1);
+  border-radius: 2px;
+  /* "Border: 2px" */
+  border: 2px solid transparent;
+  /* Assuming transparent if no color specified, or maybe 2px is the radius repeated? I'll keep it subtle or maybe match text color? */
+
+  font-family: var(--font-frutiger);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: hsla(45, 18%, 96%, 1);
+}
+
+/* Text Area */
+.card-text-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* fill */
+  padding: 10px;
+  gap: 8px;
+
+  /* Border: Top, 1px, alignment inside (handled by box-sizing default or padding) */
+  border-top: 1px solid #DAD8D2;
+  /* Using standard border color */
+
+  /* Effects: None */
+  background: transparent;
+}
+
+.card-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Align Title and Duration */
+  width: 100%;
+}
+
+.card-title {
+  font-family: var(--font-frutiger);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #3C312A;
+  margin: 0;
+}
+
+.card-duration {
+  font-family: var(--font-frutiger);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #3C312A;
+  text-align: right;
+}
+
+.card-row-bottom {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.card-price {
+  font-family: var(--font-frutiger);
+  font-weight: 400;
+  font-size: 12px;
+  /* Reduced from 14px */
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #3C312A;
+  text-align: left;
 }
