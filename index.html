@@ -5,136 +5,248 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day One Trekking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Ubuntu+Mono:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Ubuntu+Mono:wght@700&display=swap"
         rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        frutiger: ['DayOneFrutiger', 'sans-serif'],
+                        ubuntu: ['Ubuntu Mono', 'monospace'],
+                    },
+                    colors: {
+                        'page-bg': 'hsla(45, 18%, 96%, 1)',
+                        'text-dark': '#1a1a1a',
+                        'text-brown': '#51423B',
+                        'text-muted': '#7E7E7E',
+                        'text-header': '#3C312A',
+                        'btn-primary': '#51423b',
+                        'btn-hover': '#362620',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <a href="/" class="logo-wrap" aria-label="Day One Home">
-            <img src="day-one-images/day-one.svg" alt="Day One Logo" class="logo-img" />
+<body class="w-full min-h-screen bg-page-bg font-frutiger">
+
+    <!-- Header -->
+    <header
+        class="sticky top-0 left-0 z-50 w-full h-[100px] px-5 lg:px-[70px] flex justify-between items-center bg-[hsla(45,18%,96%,0.6)] backdrop-blur-[4px]">
+        <a href="/" class="flex items-center justify-center w-[100px] h-full" aria-label="Day One Home">
+            <img src="day-one-images/day-one.svg" alt="Day One Logo" class="w-[82px] h-auto object-contain" />
         </a>
 
-        <div class="nav-right">
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#treks">Treks</a></li>
-                    <li><a href="#blogs">Blogs</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
+        <div class="flex items-center gap-5 lg:gap-[20px]">
+            <nav class="hidden md:block p-1">
+                <ul class="flex items-center gap-[20px] list-none">
+                    <li><a href="#about"
+                            class="text-text-dark font-bold text-[16px] hover:opacity-70 transition-opacity">About</a>
+                    </li>
+                    <li><a href="#treks"
+                            class="text-text-dark font-bold text-[16px] hover:opacity-70 transition-opacity">Treks</a>
+                    </li>
+                    <li><a href="#blogs"
+                            class="text-text-dark font-bold text-[16px] hover:opacity-70 transition-opacity">Blogs</a>
+                    </li>
+                    <li><a href="#gallery"
+                            class="text-text-dark font-bold text-[16px] hover:opacity-70 transition-opacity">Gallery</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="text-text-dark font-bold text-[16px] hover:opacity-70 transition-opacity">Contact</a>
+                    </li>
                 </ul>
             </nav>
 
-            <a href="#plan" class="cta-button primary-button">
-                <span class="text-bold">Plan Your Journey</span>
+            <a href="#plan"
+                class="inline-flex items-center justify-center h-[59px] px-[22px] rounded-[48px] border border-[#e5e6ea] bg-[#51423b] text-white gap-[10px] transform transition-all duration-200 hover:bg-[#362620] hover:-translate-y-[2px] active:translate-y-0 shadow-[-2px_4px_4px_hsla(23,18%,19%,0.4),inset_0_4px_4px_hsla(0,0%,0%,0.3),inset_0_-4px_4px_hsla(23,18%,31%,1),2px_-1px_4px_hsla(23,18%,19%,0.3)] active:shadow-[0_1px_2px_hsla(23,18%,19%,0.4),inset_0_1px_2px_hsla(0,0%,0%,0.3),inset_0_-1px_2px_hsla(23,18%,31%,1)] btn-text-shadow">
+                <span class="font-montserrat font-semibold text-[16px] tracking-[0.06em]">Plan Your Journey</span>
             </a>
         </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Where every <span class="italic-brown">journey</span> begins.</h1>
-                <p class="hero-body">
+    <main class="w-full overflow-x-hidden">
+        <!-- Hero Section -->
+        <section
+            class="w-full max-w-[1440px] mx-auto px-5 md:px-[70px] py-[128px] flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-0">
+            <div class="flex flex-col items-start gap-[22px] w-full max-w-[472px]">
+                <h1 class="font-montserrat font-bold text-[69px] leading-[72px] tracking-[0.01em] text-[#1a1a1a]">
+                    Where every <span class="italic font-normal text-[#51423B]">journey</span> begins.
+                </h1>
+                <p class="font-frutiger text-[16px] leading-[24px] text-[#7E7E7E] max-w-[372px]">
                     Curated expeditions for the modern explorer.<br>
                     Reconnect with the wild in comfort and style.
                 </p>
-                <a href="#journeys" class="secondary-button">
-                    Explore Journeys
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 5H9M9 5L5 1M9 5L5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
+                <a href="#journeys"
+  class="inline-flex w-fit items-center justify-center gap-[4px]
+  px-[26px] py-[16px] rounded-[48px]
+  border border-[#DAD8D2] bg-transparent text-[#1A1A1A]
+  font-frutiger font-bold text-[16px] leading-[24px]
+  transition-all duration-200
+  hover:bg-[hsla(23,18%,19%,1)] hover:text-[hsla(45,18%,96%,1)]
+  hover:shadow-[-2px_4px_4px_rgba(58,47,40,0.4),inset_0_4px_4px_rgba(58,47,40,0.3)]
+  active:bg-[#3A2F28] active:text-[#F6F5F2]
+  active:shadow-[-1px_2px_2px_rgba(58,47,40,0.2),inset_0_4px_6px_rgba(0,0,0,0.4)]">
+  Explore Journeys
+  <svg class="w-[10px] h-[10px] shrink-0" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 5H9M9 5L5 1M9 5L5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+      stroke-linejoin="round" />
+  </svg>
+</a>
+
             </div>
 
-            <div class="hero-image-wrapper">
-                <img src="day-one-images/hero Image.png" alt="Trekking Adventure" class="hero-image">
+            <div class="relative w-full max-w-[700px] h-auto lg:h-[492px]">
+                <img src="day-one-images/hero Image.png" alt="Trekking Adventure"
+                    class="w-full h-full object-cover rounded-tr-[24px] rounded-bl-[24px]">
             </div>
         </section>
 
-        <section class="philosophy-section">
-            <div class="philosophy-label">Our Philosophy</div>
-            <div class="philosophy-quote">
-                <div class="quote-line line-bold">Born from the mountains.</div>
-                <div class="quote-line line-italic">Crafted for explorers.</div>
-                <div class="quote-line line-bold">Built on trust.</div>
+        <!-- Philosophy Section -->
+        <section class="w-full py-[128px] flex flex-col items-center text-center">
+            <div class="font-frutiger font-bold text-[14px] tracking-[1px] text-[#100C0A] mb-[32px] uppercase">Our
+                Philosophy</div>
+            <div class="flex flex-col gap-[16px]">
+                <div class="font-montserrat font-bold text-[48px] leading-normal text-[#3C312A]">Born from the
+                    mountains.</div>
+                <div class="font-montserrat font-normal italic text-[48px] leading-normal text-[#3C312A]">Crafted for
+                    explorers.</div>
+                <div class="font-montserrat font-bold text-[48px] leading-normal text-[#3C312A]">Built on trust.</div>
             </div>
         </section>
 
-        <section class="curated-journeys-section" id="journeys">
-            <div class="journeys-header">
-                <h2 class="curated-title">Curated Journeys</h2>
-                <a href="#all-journeys" class="secondary-button">
-                    VIEW ALL JOURNEYS
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 5H9M9 5L5 1M9 5L5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
+        <!-- Curated Journeys Section -->
+        <section id="journeys"
+            class="w-full max-w-[1440px] mx-auto px-5 lg:px-[70px] py-[128px] flex flex-col items-center gap-[82px]">
+           <div class="w-full max-w-[1300px] flex flex-col md:flex-row justify-between md:items-center items-start gap-4 md:gap-0">
+                <h2 class="font-montserrat font-semibold text-[36px] tracking-[0.02em] text-[#0C0503]">Curated Journeys
+                </h2>
+                <a href="#all-journeys"
+  class="inline-flex w-fit items-center justify-center gap-[4px]
+  px-[26px] py-[16px] rounded-[48px]
+  border border-[#DAD8D2] bg-transparent text-[#1A1A1A]
+  font-frutiger font-bold text-[16px] leading-[24px]
+  transition-all duration-200
+  hover:bg-[hsla(23,18%,19%,1)] hover:text-[hsla(45,18%,96%,1)]
+  hover:shadow-[-2px_4px_4px_rgba(58,47,40,0.4),inset_0_4px_4px_rgba(58,47,40,0.3)]
+  active:bg-[#3A2F28] active:text-[#F6F5F2]
+  active:shadow-[-1px_2px_2px_rgba(58,47,40,0.2),inset_0_4px_6px_rgba(0,0,0,0.4)]">
+  VIEW ALL JOURNEYS
+  <svg class="w-[10px] h-[10px] shrink-0" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 5H9M9 5L5 1M9 5L5 9"
+      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</a>
+
             </div>
 
-            <div class="cards-wrapper">
+            <!-- Cards Grid -->
+            <div
+                class="w-full max-w-[1300px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[42px] justify-items-center">
+
                 <!-- Card 1 -->
-                <div class="journey-card">
-                    <div class="card-image-container">
-                    <img src="day-one-images/annapurna base camp.png" alt="Annapurna Base Camp" class="card-image">
-                        <div class="card-badge">Challenging</div>
+                <div class="flex flex-col gap-[20px] w-full max-w-[342px] min-w-[149px] cursor-pointer group">
+                    <div
+                        class="relative w-full h-[414px] rounded-[10px] overflow-hidden shadow-[0_0_14px_0_rgba(58,47,40,0.3),0_4px_4px_0_rgba(58,47,40,0.25)] transition-shadow duration-500 group-hover:shadow-none">
+                        <img src="day-one-images/annapurna base camp.png" alt="Annapurna Base Camp"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-[20px] right-[20px] p-[8px] bg-[#0C0503] text-[#F6F5F2] font-frutiger text-[12px] rounded-[2px] border-2 border-transparent">
+                            Challenging</div>
                     </div>
-                    <div class="card-text-area">
-                        <div class="card-row-top">
-                            <span class="card-title">Annapurna Base Camp</span>
-                            <span class="card-duration">14 Days</span>
+                    <div class="flex flex-col gap-[8px] p-[10px] border-t border-[#DAD8D2] w-full">
+                        <div class="flex justify-between items-center w-full">
+                            <span class="font-frutiger font-bold text-[16px] text-[#3C312A]">Annapurna Base Camp</span>
+                            <span class="font-frutiger font-normal text-[12px] text-[#3C312A]">14 Days</span>
                         </div>
-                        <div class="card-row-bottom">
-                            <span class="card-price">1000$ per person</span>
+                        <div class="w-full flex justify-start">
+                            <span class="font-frutiger font-normal text-[12px] text-[#3C312A]">1000$ per person</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="journey-card">
-                    <div class="card-image-container">
-                      <img src="day-one-images/everest base camp.png" alt="Everest Base Camp" class="card-image">
-                        <div class="card-badge">Challenging</div>
+                <div class="flex flex-col gap-[20px] w-full max-w-[342px] min-w-[149px] cursor-pointer group">
+                    <div
+                        class="relative w-full h-[414px] rounded-[10px] overflow-hidden shadow-[0_0_14px_0_rgba(58,47,40,0.3),0_4px_4px_0_rgba(58,47,40,0.25)] transition-shadow duration-500 group-hover:shadow-none">
+                        <img src="day-one-images/Hiker in Serene Forest (1).png" alt="Everest Base Camp"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-[20px] right-[20px] p-[8px] bg-[#0C0503] text-[#F6F5F2] font-frutiger text-[12px] rounded-[2px] border-2 border-transparent">
+                            Challenging</div>
                     </div>
-                    <div class="card-text-area">
-                        <div class="card-row-top">
-                            <span class="card-title">Everest Base Camp</span>
-                            <span class="card-duration">19 Days</span>
+                    <div class="flex flex-col gap-[8px] p-[10px] border-t border-[#DAD8D2] w-full">
+                        <div class="flex justify-between items-center w-full">
+                            <span class="font-frutiger font-bold text-[16px] text-[#3C312A]">Everest Base Camp</span>
+                            <span class="font-frutiger font-normal text-[12px] text-[#3C312A]">19 Days</span>
                         </div>
-                        <div class="card-row-bottom">
-                            <span class="card-price">2000$ per person</span>
+                        <div class="w-full flex justify-start">
+                            <span class="font-frutiger font-normal text-[12px] text-[#3C312A]">2000$ per person</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="journey-card">
-                    <div class="card-image-container">
-                        <img src="day-one-images/manaslu circuit trek.png" alt="Manaslu Circuit Trek" class="card-image">
-                        <div class="card-badge">Challenging</div>
+                <div class="flex flex-col gap-[20px] w-full max-w-[342px] min-w-[149px] cursor-pointer group">
+                    <div
+                        class="relative w-full h-[414px] rounded-[10px] overflow-hidden shadow-[0_0_14px_0_rgba(58,47,40,0.3),0_4px_4px_0_rgba(58,47,40,0.25)] transition-shadow duration-500 group-hover:shadow-none">
+                        <img src="day-one-images/Forest Run (1).png" alt="Manaslu Circuit Trek"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-[20px] right-[20px] p-[8px] bg-[#0C0503] text-[#F6F5F2] font-frutiger text-[12px] rounded-[2px] border-2 border-transparent">
+                            Challenging</div>
                     </div>
-                    <div class="card-text-area">
-                        <div class="card-row-top">
-                            <span class="card-title">Manaslu Circuit Trek</span>
-                            <span class="card-duration">14 Days</span>
+                    <div class="flex flex-col gap-[8px] p-[10px] border-t border-[#DAD8D2] w-full">
+                        <div class="flex justify-between items-center w-full">
+                            <span class="font-frutiger font-bold text-[16px] text-[#3C312A]">Manaslu Circuit Trek</span>
+                            <span class="font-frutiger font-normal text-[12px] text-[#3C312A]">14 Days</span>
                         </div>
-                        <div class="card-row-bottom">
-                            <span class="card-price">500$ per person</span>
+                        <div class="w-full flex justify-start">
+                            <span class="font-frutiger font-normal text-[12px] text-[#3C312A]">500$ per person</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
+        <!-- Video Section (4th Section) -->
+<!-- Video Section (Full-width 1440x641 frame) -->
+<!-- Video Section -->
+<section class="w-full bg-page-bg">
+  <!-- Inner wrapper controls max width ONLY -->
+  <div class="w-full mx-auto">
+    <div class="w-full h-[641px] box-border">
+      <video
+        class="w-full h-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="day-one-images/4th section.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+
+
+
     </main>
-
-
 </body>
 
 </html>
