@@ -15,3 +15,96 @@
 .btn-text-shadow {
   text-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
 }
+
+/* Secondary button base */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  padding: 16px 26px;
+  border-radius: 48px;
+  border: 1px solid #DAD8D2;
+
+  background: transparent;
+  color: #1A1A1A;
+
+  font-family: DayOneFrutiger, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease, color 200ms ease;
+}
+
+/* Make sure text and icon stay above the expanding circle */
+.btn-secondary>* {
+  position: relative;
+  z-index: 2;
+}
+
+/* The dot or small capsule under the button that expands on hover */
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: hsla(23, 18%, 19%, 1);
+
+  /* Start as a small dot below the button */
+  transform: translate(-50%, calc(100% + 14px)) scale(1);
+  transform-origin: center;
+  transition: transform 320ms ease;
+  z-index: 1;
+}
+
+.btn-secondary:hover::before {
+  /* Move into center + scale huge so it covers the whole pill */
+  transform: translate(-50%, -50%) scale(40);
+}
+
+.btn-secondary:hover {
+  color: hsla(45, 18%, 96%, 1);
+}
+
+.btn-secondary:hover,
+.btn-secondary:hover * {
+  color: hsla(45, 18%, 96%, 1);
+}
+
+
+/* Active press state */
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
+/* Footer variant only changes default text color, hero stays unchanged */
+.btn-secondary--on-dark {
+  color: hsla(45, 18%, 96%, 1);
+}
+
+
+@font-face {
+  font-family: 'DayOneFrutiger';
+  src: url('Fonts/Frutiger-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DayOneFrutiger';
+  src: url('Fonts/Frutiger-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.btn-secondary--light {
+  color: hsla(45, 18%, 96%, 1);
+}
